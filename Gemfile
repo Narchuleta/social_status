@@ -57,6 +57,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'sqlite3'
+  gem 'annotate'
 end
 
 group :development do
