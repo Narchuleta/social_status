@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    @tweets = Tweet.all
   end
 
   def new
@@ -10,7 +11,7 @@ class TweetsController < ApplicationController
 
   def create
   @tweet = Tweet.new(tweet_params)
-    if tweet.save
+    if @tweet.save
   redirect_to @tweet, notice: 'You just tweeted!'  
   else
     render :new
@@ -26,6 +27,6 @@ class TweetsController < ApplicationController
   private
   
   def tweet_params
-    params.require(:tweets).permit(:message, :user_id)
+    params.require(:tweet).permit(:message, :user_id)
   end
 end
